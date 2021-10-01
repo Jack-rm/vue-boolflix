@@ -30,24 +30,21 @@ export default {
   },
   data: function(){
     return{
-      cardsList: [],
+      cardsList: '',
       search: '',
     }
   },
   methods:{
     executeSearch(search){
+      axios
+      .get('https://api.themoviedb.org/3/search/movie?api_key=aa4ff77acc5aee627f260c508f92850e&query=' + search.trim())
+      .then((response) =>{
+        this.cardsList = response.data.results;
+        console.log(this.cardsList)
+      });
       console.log(search);
     }
   },
-
-  created: function(){
-    axios
-    .get('https://api.themoviedb.org/3/search/movie?api_key=aa4ff77acc5aee627f260c508f92850e&query=ritorno+al+futuro')
-    .then((response) =>{
-      this.cardsList = [...response.data.results];
-      console.log(this.cardsList)
-    });
-  }
 
 
 }

@@ -1,7 +1,10 @@
 <template>
 
   <div class="single-card">
-      <p>{{ cardItem.title }}</p>
+      <h3>{{ cardItem.title }}</h3>
+      <span>{{ cardItem.original_title}} -- </span>
+      <span>({{ cardItem.original_language }}) -- </span>
+      <span>({{ cardItem.vote_average }})</span>
   </div>
 
 </template>
