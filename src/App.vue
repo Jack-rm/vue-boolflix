@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to my Boolflix!"/>
+    <Wrapper msg="Welcome to my Boolflix!"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Wrapper from './components/Wrapper.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Wrapper
   }
 }
 </script>

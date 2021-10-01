@@ -3,8 +3,7 @@
   
     <h1>{{ msg }}</h1>
   
-    <Header />
-    <input type="text" placeholder="Movies" v-model='search' @keyup="executeSearch(search)">
+    <Header @upSearch="executeSearch" />
     
     <ul>
       <li v-for="(card, index) in cardsList" :key="index">
@@ -17,11 +16,11 @@
 
 <script>
 import axios from 'axios';
-import Header from '../components/Header.vue'
-import Card from '../components/Card.vue'
+import Header from './Header.vue'
+import Card from './Card.vue'
 
 export default {
-  name: 'HelloWorld',
+  name: 'Wrapper',
   props: {
     msg: String,
   },
