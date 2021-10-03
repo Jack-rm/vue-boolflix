@@ -2,11 +2,11 @@
 
   <div class="single-card" :style="{ backgroundImage: 'url(' + image + cardItem.poster_path + ')' }">
     <div class="card-info">
-      <h3>{{ cardItem.title }}</h3>
+      <h3>{{ cardItem.title }}  </h3>
       <span>{{ cardItem.original_title }} -- </span>
       <span>{{ cardItem.original_language.toUpperCase() }} </span><i :class="{'eng_flag':(cardItem.original_language == 'en'), 'ita_flag':(cardItem.original_language == 'it'), 'fas fa-globe':(cardItem.original_language != 'it' && cardItem.original_language != 'en')}"></i>
       <br>
-      <span>({{ Math.round(cardItem.vote_average) }})</span>
+      <i class="fas fa-star" v-for="rating in Math.round(cardItem.vote_average / 2)" :key="rating"></i><span>({{ Math.round(cardItem.vote_average / 2) }})/5</span>
     </div>
   </div>
 
@@ -21,8 +21,18 @@ export default {
     data() {
       return {
         image: 'https://image.tmdb.org/t/p/w342',
+        ratingCap: [1, 2, 3, 4, 5],
+        // current_value : null,
       }
-    }
+    },
+    methods: {
+      /*
+      set: function(value) {
+        this.current_value = value;
+        return this.value = value;
+      }
+      */
+    },
 }
 </script>
 
@@ -59,6 +69,7 @@ export default {
 
 .fas{
   font-size: 1.3em;
+  color: gold;
 }
 
 </style>
