@@ -1,5 +1,7 @@
 <template>
+
   <div class="single-card" :style="{ backgroundImage: 'url(' + image + cardItem.poster_path + ')' }">
+    
     <div class="card-info">
       <ul>
         <li>
@@ -9,12 +11,17 @@
           <span>{{ cardItem.original_title }}</span>
           </li>
         <li>
-          <span>{{ cardItem.original_language.toUpperCase() }} </span><i :class="{'eng_flag':(cardItem.original_language == 'en'), 'ita_flag':(cardItem.original_language == 'it'), 'fas fa-globe':(cardItem.original_language != 'it' && cardItem.original_language != 'en')}"></i>
+          <span>{{ cardItem.original_language.toUpperCase() }} </span>
+          <i :class="{'eng_flag':(cardItem.original_language == 'en'),
+                      'ita_flag':(cardItem.original_language == 'it'),
+                      'fas fa-globe':(cardItem.original_language != 'it' && cardItem.original_language != 'en')}">
+          </i>
         </li>
         <li><i class="fas fa-star" v-for="rating in ratingCap" :class="{'current_rating':((Math.round(cardItem.vote_average / 2) >= rating))}" :key="rating"></i><span></span>
         </li>
       </ul>
     </div>
+
   </div>
 
 </template>
@@ -56,15 +63,17 @@ ul{
 .single-card{
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  min-height: 300px;
+  background-size: contain;
   margin: 5px;
+  width: 200px;
+  height: 300px;
 }
 
 .card-info{
   color: white;
   background-color: black;
-  min-height: 300px;
+  height: 100%;
+  width: 100%;
   opacity: 0;
     
     &:hover{

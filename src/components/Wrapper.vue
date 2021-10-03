@@ -5,10 +5,12 @@
     
     <main>
       <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="col-2 media-box gx-0" v-for="(card, index) in cardsList" :key="index">
+        <div class="row d-flex flex-wrap justify-content-center">
+
+          <div class="col media-box gx-0" v-for="(card, index) in cardsList" :key="index">       
               <Card :cardItem="card" />
           </div>
+
         </div>
       </div>
     </main>
