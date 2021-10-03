@@ -1,12 +1,19 @@
 <template>
-
   <div class="single-card" :style="{ backgroundImage: 'url(' + image + cardItem.poster_path + ')' }">
     <div class="card-info">
-      <h3>{{ cardItem.title }}  </h3>
-      <span>{{ cardItem.original_title }} -- </span>
-      <span>{{ cardItem.original_language.toUpperCase() }} </span><i :class="{'eng_flag':(cardItem.original_language == 'en'), 'ita_flag':(cardItem.original_language == 'it'), 'fas fa-globe':(cardItem.original_language != 'it' && cardItem.original_language != 'en')}"></i>
-      <br>
-      <i class="fas fa-star" v-for="rating in ratingCap" :class="{'current_rating':((Math.round(cardItem.vote_average / 2) >= rating))}" :key="rating"></i><span>({{ Math.round(cardItem.vote_average / 2) }})/5</span>
+      <ul>
+        <li>
+          <h4>{{ cardItem.title }}</h4>
+          </li>
+        <li>
+          <span>{{ cardItem.original_title }}</span>
+          </li>
+        <li>
+          <span>{{ cardItem.original_language.toUpperCase() }} </span><i :class="{'eng_flag':(cardItem.original_language == 'en'), 'ita_flag':(cardItem.original_language == 'it'), 'fas fa-globe':(cardItem.original_language != 'it' && cardItem.original_language != 'en')}"></i>
+        </li>
+        <li><i class="fas fa-star" v-for="rating in ratingCap" :class="{'current_rating':((Math.round(cardItem.vote_average / 2) >= rating))}" :key="rating"></i><span></span>
+        </li>
+      </ul>
     </div>
   </div>
 
@@ -38,15 +45,31 @@ export default {
 
 <style lang="scss" scoped>
 @import '~@fortawesome/fontawesome-free/css/all.css';
+@import '../style/variables.scss';
+@import '../style/general.scss';
+
+ul{
+  list-style-type: none;
+  padding: 10px;
+}
 
 .single-card{
   background-repeat: no-repeat;
   background-position: center;
-  height: 500px;
+  background-size: cover;
+  min-height: 300px;
+  margin: 5px;
 }
 
 .card-info{
   color: white;
+  background-color: black;
+  min-height: 300px;
+  opacity: 0;
+    
+    &:hover{
+      opacity: 0.9;
+    }
 }
 
 .eng_flag{
@@ -70,7 +93,7 @@ export default {
 .fas{
   font-size: 1.3em;
   &.current_rating{
-    color: gold;
+    color: $myGolden;
   }
 }
 

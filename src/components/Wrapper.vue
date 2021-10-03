@@ -1,16 +1,18 @@
 <template>
   <div class="hello">
   
-    <h1>{{ msg }}</h1>
-  
     <Header @upSearch="executeSearch" />
     
-    <ul>
-      <li v-for="(card, index) in cardsList" :key="index">
-        <Card :cardItem="card" />
-      </li>
-    </ul>
-  
+    <main>
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-2 media-box gx-0" v-for="(card, index) in cardsList" :key="index">
+              <Card :cardItem="card" />
+          </div>
+        </div>
+      </div>
+    </main>
+
   </div>
 </template>
 
@@ -51,10 +53,22 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '../style/general.scss';
+@import '../style/variables.scss';
+
+.media-box{
+  margin-top: 20px;
+}
 
 ul {
   list-style-type: none;
   padding: 0;
 }
+
+main {
+  height: 100%;
+  background-color: $mainGrey;
+}
+
 
 </style>
