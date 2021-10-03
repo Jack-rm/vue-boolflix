@@ -39,8 +39,8 @@ export default {
       axios
       .get('https://api.themoviedb.org/3/search/movie?api_key=aa4ff77acc5aee627f260c508f92850e&append_to_response=tv&query=' + search.trim())
       .then((response) =>{
-        this.cardsList = response.data.results;
-        console.log(this.cardsList)
+        this.cardsList = response.data.results.slice();
+        console.log(this.cardsList);
       });
       console.log(search);
     }
