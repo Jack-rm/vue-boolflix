@@ -6,7 +6,7 @@
       <span>{{ cardItem.original_title }} -- </span>
       <span>{{ cardItem.original_language.toUpperCase() }} </span><i :class="{'eng_flag':(cardItem.original_language == 'en'), 'ita_flag':(cardItem.original_language == 'it'), 'fas fa-globe':(cardItem.original_language != 'it' && cardItem.original_language != 'en')}"></i>
       <br>
-      <i class="fas fa-star" v-for="rating in Math.round(cardItem.vote_average / 2)" :key="rating"></i><span>({{ Math.round(cardItem.vote_average / 2) }})/5</span>
+      <i class="fas fa-star" v-for="rating in ratingCap" :class="{'current_rating':((Math.round(cardItem.vote_average / 2) >= rating))}" :key="rating"></i><span>({{ Math.round(cardItem.vote_average / 2) }})/5</span>
     </div>
   </div>
 
@@ -69,7 +69,9 @@ export default {
 
 .fas{
   font-size: 1.3em;
-  color: gold;
+  &.current_rating{
+    color: gold;
+  }
 }
 
 </style>
