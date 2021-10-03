@@ -42,9 +42,9 @@ export default {
       .get('https://api.themoviedb.org/3/search/movie?api_key=aa4ff77acc5aee627f260c508f92850e&append_to_response=tv&query=' + search.trim())
       .then((response) =>{
         this.cardsList = response.data.results.slice();
-        console.log(this.cardsList);
+        // console.log(this.cardsList);
       });
-      console.log(search);
+      // console.log(search);
     }
   },
 
@@ -66,7 +66,7 @@ ul {
 }
 
 main {
-  height: 100%;
+  min-height: 100vh;
   background-color: $mainGrey;
 }
 
