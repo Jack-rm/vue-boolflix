@@ -8,7 +8,7 @@
                         <img src="https://fontmeme.com/permalink/211001/4937b74c6317b36c509baa13669b4b20.png" alt="netflix-font" border="0">
                     </div>
                     <div class="header-utility mb-3">
-                        <input type="text" class="form-control" placeholder=" Movies | Tv Series" v-model="search" @keyup="$emit('upSearch', search)">    
+                        <input type="text" class="form-control" placeholder=" Movies | Tv Series" v-model.trim="search" @keyup="$emit('upSearch', search)">    
                     </div>
                 </div>
             </div>

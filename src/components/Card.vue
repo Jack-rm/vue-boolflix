@@ -5,7 +5,7 @@
     <div class="card-info">
       <ul>
         <li>
-          <h4>{{ cardItem.title }}</h4>
+          <h4>{{ cardItem.title ? cardItem.title : cardItem.name }}</h4>
           </li>
         <li>
           <span>{{ cardItem.original_title }}</span>
@@ -66,7 +66,7 @@ ul{
   background-size: contain;
   margin: 5px;
   width: 200px;
-  height: 300px;
+  height: 275px;
 }
 
 .card-info{
